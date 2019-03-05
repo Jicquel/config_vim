@@ -28,10 +28,27 @@ Plugin 'mattn/emmet-vim'
 Plugin 'ervandew/supertab'
 Plugin 'godlygeek/tabular'
 Plugin 'scrooloose/nerdcommenter'
+Plugin 'vim-syntastic/syntastic'
+
+" Interface
+Plugin 'morhetz/gruvbox'
+
+
+" Rust
+Plugin 'rust-lang/rust.vim'
+Plugin 'racer-rust/vim-racer'
+
+
+" React
+Plugin 'pangloss/vim-javascript'
+Plugin 'mxw/vim-jsx'
+Plugin 'prettier/vim-prettier'
+
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
+filetype on                  " required
 " To ignore plugin indent changes, instead use:
 "filetype plugin on
 "
@@ -45,3 +62,26 @@ filetype plugin indent on    " required
 " Put your non-Plugin stuff after this line
 
 nmap <F8> :TagbarToggle<CR>
+
+"interface config
+colorscheme gruvbox
+
+"rust config
+let g:rustfmt_autosave = 1
+let g:rustfmt_command = 'rustup run stable rustfmt'
+
+"racer config
+set hidden
+let g:racer_cmd = '~/.cargo/bin/racer'
+let g:racer_experimental_completer = 1
+
+let g:ycm_global_ycm_extra_conf =  '$HOME/.vim/bundle/youcompleteme/.ycm_extra_conf.py'
+
+
+"emmet config
+let g:user_emmet_leader_key='<Tab>'
+let g:user_emmet_settings = {
+  \  'javascript.jsx' : {
+    \      'extends' : 'jsx',
+    \  },
+  \}
